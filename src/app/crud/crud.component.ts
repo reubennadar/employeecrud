@@ -52,7 +52,7 @@ addNewEmployeeBtn(){
     }
   }
   deleteEmployee(i:any){
-    this.employees.splice(i);
+    this.employees.splice(i,1);
     console.log(i);
     
   }
