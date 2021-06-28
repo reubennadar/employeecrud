@@ -1,0 +1,57 @@
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 align="center">Employee CRUD App</h1>
+    </div>
+    <div class="container">
+        <b>Add Employee </b>
+        <button class="btn btn-success" (click)="addNewEmployeeBtn()">+</button>
+
+    </div>
+    <div class="container" *ngIf="newEmployeeClicked">
+        <form >
+            <div class="form-group">
+              <label for="Name">Name:</label>
+              <input type="text" class="form-control" placeholder="Enter Name" name="Name" [(ngModel)]="model.name">
+            </div>
+            <div class="form-group">
+              <label for="pwd">Position:</label>
+              <input type="text" class="form-control" placeholder="Enter position" name="Position"[(ngModel)]="model.position">
+            </div>
+            
+            <button type="submit" class="btn btn-success" (click)="addEmployee()">Save</button>
+          </form>
+    </div>
+    <div class="container">
+        <table class="table table-striped" >
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let employee of employees;let i=index">
+                <td>{{employee.name}}</td>
+                <td>{{employee.position}}</td>
+                <td><button class="btn btn-primary" (click)="editEmployee(i)">Edit</button></td>
+                <td><button class="btn btn-danger"(click)="deleteEmployee(i)">Del</button></td>
+              </tr>
+            </tbody>
+         </table>
+    </div>
+    <form >
+        <div class="form-group">
+          <label for="Name">Name:</label>
+          <input type="text" class="form-control" placeholder="Enter Name" name="Name" [(ngModel)]="model2.name">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Position:</label>
+          <input type="text" class="form-control" placeholder="Enter position" name="Position"[(ngModel)]="model2.position">
+        </div>
+        
+        <button type="submit" class="btn btn-success" (click)="updateEmployee()">Save</button>
+      </form>
+</div>
